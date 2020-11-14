@@ -1,0 +1,39 @@
+body {
+  background-color: whitesmoke;
+}
+
+h1, p {
+  font-family: Helvetica;
+  text-align: center;
+}
+
+h2 {
+  font-family: Helvetica;
+}
+
+h4 {
+  font-family: Helvetica;
+  text-align: center;
+  font-size: 10px;
+}
+
+#toolbar {
+  background-color: deeppink;
+  justify-content: center;
+}
+
+.listitem {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: plum;
+}
+
+#listcont {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
