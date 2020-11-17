@@ -54,7 +54,7 @@ class FilteredList extends Component {
           color15: "#000000",
           color16: "#000000",
   	   })
-    } else if (event === "IvyRoom") {
+    } else if (event === "Ivy Room") {
        this.setState({
   		    color11: "#000000",
           color12: "#000000",
@@ -63,7 +63,7 @@ class FilteredList extends Component {
           color15: "#000000",
           color16: "#000000",
   	   })
-     } else if (event === "Jos") {
+     } else if (event === "Jo's") {
         this.setState({
    		     color11: "#000000",
            color12: "#000000",
@@ -198,8 +198,8 @@ class FilteredList extends Component {
         <Navbar.Brand style={{color:"#4d194d"}}>Dining Hall:</Navbar.Brand>
         <Nav.Link id="nav-link" style={{color: this.state.color11}} eventKey="All" onSelect={this.onSelectFilterLocation}>All</Nav.Link>
         <Nav.Link id="nav-link" style={{color: this.state.color12}} eventKey="Andrews" onSelect={this.onSelectFilterLocation}>Andrews</Nav.Link>
-        <Nav.Link id="nav-link" style={{color: this.state.color13}} eventKey="IvyRoom" onSelect={this.onSelectFilterLocation}>IvyRoom</Nav.Link>
-        <Nav.Link id="nav-link" style={{color: this.state.color14}} eventKey="Jos" onSelect={this.onSelectFilterLocation}>Jos</Nav.Link>
+        <Nav.Link id="nav-link" style={{color: this.state.color13}} eventKey="Ivy Room" onSelect={this.onSelectFilterLocation}>Ivy Room</Nav.Link>
+        <Nav.Link id="nav-link" style={{color: this.state.color14}} eventKey="Jo's" onSelect={this.onSelectFilterLocation}>Jo's</Nav.Link>
         <Nav.Link id="nav-link" style={{color: this.state.color15}} eventKey="Ratty" onSelect={this.onSelectFilterLocation}>Ratty</Nav.Link>
         <Nav.Link id="nav-link" style={{color: this.state.color16}} eventKey="VDub" onSelect={this.onSelectFilterLocation}>VDub</Nav.Link>
       </Navbar>
