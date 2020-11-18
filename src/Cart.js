@@ -13,12 +13,14 @@ var parsePrice = require('parse-price')
 class Cart extends Component {
   createTask = item => {
     return (
-      <Paper style={{backgroundColor:"white", padding :"10px", marginLeft:"5%", marginRight:"5%", marginTop:"10px", marginBottom:"10px"}}>
-      <div style={{display:"flex", flex:"0 1 auto", flexDirection:"row",justifyContent:"space-between", alignItems:"center"}}>
-        <h2 style={{color:"#2b9348"}}>{item.location}</h2>
-        <Button variant="danger" onClick={()=>this.props.removeAll(item)} style={{fontSize:"20px",margins:"10px"}}>x</Button>
-        </div>
-        <div style={{display:"flex", flexDirection:"row",justifyContent:"space-between", alignItems:"center"}}>
+      <Paper style={{backgroundColor:"white", padding :"10px", marginLeft:"3%", marginRight:"3%", marginTop:"10px", marginBottom:"10px"}}>
+      <div id="cart">
+      <div style={{display:"flex", flex:"0 1 auto", flexDirection:"row",justifyContent:"space-around", alignItems:"center"}}>
+        <h2 style={{textAlign:"left",color:"#2b9348"}}>{item.location}</h2>
+        <h2/>
+        <Button variant="danger" onClick={()=>this.props.removeAll(item)} style={{textAlign:"right",fontSize:"20px",margins:"10px"}}>x</Button>
+      </div>
+        <div class="cartName" style={{width:"100%",display:"flex", flexDirection:"row",justifyContent:"space-around", alignItems:"center", margins:"20px"}}>
           <Image src={item.image} style={{maxWidth:"8rem",maxHeight:"8rem"}}/>
           <div style={{textAlign:"left", flexDirection:"column"}}>
             <h1>{item.name}</h1>
@@ -27,7 +29,7 @@ class Cart extends Component {
                 ? <Button variant="success" onClick={()=>this.props.removeOne(item)} style={{fontSize:"30px", margins:"10px", padding:"10px"}}>-</Button>
                 : <Button variant="success" onClick={()=>this.props.removeOne(item)} style={{fontSize:"30px", margins:"10px", padding:"10px"}} disabled>-</Button>
               }
-              <h1 style={{fontSize:"30px", padding :"10px", margin:"10px"}}>{item.quantity}</h1>
+              <h1>{item.quantity}</h1>
               <Button variant="success" onClick={()=>this.props.add(item)} style={{fontSize:"25px", margins:"10px", padding:"10px"}}>+</Button>
             </div>
           </div>
@@ -36,6 +38,7 @@ class Cart extends Component {
           </div>
         </div>
         <h2/>
+        </div>
       </Paper>
     )
   }
@@ -62,7 +65,7 @@ class Cart extends Component {
         </div>
         <div>
           {items.length > 0 &&
-            <Button variant="success" onClick={this.props.clear} style={{width:"10%", margins:"50px", padding:"10px"}}>Clear Cart</Button>
+            <Button variant="success" onClick={this.props.clear} style={{minWidth:"100px",width:"10%", padding:"10px"}}>Clear Cart</Button>
           }
         </div>
       </Paper>

@@ -4,6 +4,9 @@ body {
 
 h1, p {
   text-align: center;
+  font-size: 30px;
+  padding: 10px;;
+  margin: 10px;
 }
 
 h2 {
@@ -14,17 +17,16 @@ h4 {
   text-align: center;
 }
 
-#toolbar {
-  background-color: deeppink;
-  justify-content: center;
-}
-
 #nav-link {
-  color: white;
+  font-size: 15px;
 }
 
-#nav-link:hover {
-  color: pink;
+#cart {
+  width: 100%;
+  display: flex;
+  flex: 0 1 auto;
+  flex-direction: column;
+  justify-content:space-between;
 }
 
 #card {
