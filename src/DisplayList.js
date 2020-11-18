@@ -14,6 +14,7 @@ import ListGroupItem from 'react-bootstrap/ListGroupItem'
 class DisplayList extends Component {
   createItem = item => {
     return (
+      //item card with image, location, meal, name, price, and add to cart button
       <Card id="card" style={{maxWidth: '15rem', minWidth: '10rem', flex:'1 1 auto',textAlign:'center', marginBottom:"20px", marginRight:"20px"}}>
         <Card.Img variant="top" src={item.image} />
         <ListGroup className="list-group-flush">
@@ -25,6 +26,7 @@ class DisplayList extends Component {
           </Card.Body>
         <Card.Footer>
         <h1>{item.price}</h1>
+        //button adds this item to the cart
         <Button variant="success" onClick={() => this.props.addItem(item)} style={{color:"white"}}>
           Add to Cart
         </Button>
@@ -35,9 +37,11 @@ class DisplayList extends Component {
   }
 
   render() {
+    //each item from FilteredList is created
     const itemList = this.props.list
     const mapList = itemList.map(this.createItem)
     return (
+      //card deck holds the item cards
       <Paper style={{backgroundColor:"#f0efeb",marginTop :"50px", marginLeft :"50px", marginRight :"50px", marginBottom :"50px"}}>
         <CardDeck style={{width:"100%", flexWrap:"wrap", justifyContent:"center", display:"flex", paddingTop :"20px", paddingLeft :"20px", paddingRight :"20px", paddingBottom :"20px"}}>
           {mapList}

@@ -1,9 +1,13 @@
 import React, {Component} from 'react'
 import ReactDOM from 'react-dom'
+
+//stylesheet
 import './React.css'
+
+//components within the webpage
 import FilteredList from './FilteredList.js'
 import Cart from './Cart.js'
-
+//item images
 import BDS from './assets/BDS.png';
 import Chicken from './assets/Chicken.png';
 import Spicy from './assets/Spicy.png';
@@ -20,7 +24,6 @@ import Salad from './assets/Salad.png';
 import Taco from './assets/Taco.png';
 import Plantain from './assets/Plantain.png';
 import Smoothie from './assets/Smoothie.png';
-
 import Apple1 from './assets/Apple1.png';
 import BluePop from './assets/BluePop.png';
 import StrawPop from './assets/StrawPop.png';
@@ -61,12 +64,13 @@ import White from './assets/White.png';
 import Wing from './assets/Wing.png';
 import Burrito from './assets/Burrito.png';
 
+//material-ui, react bootstrap
 import {Paper, Card} from '@material-ui/core'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Image from 'react-bootstrap/Image'
 import Button from 'react-bootstrap/Button'
 
-
+//list of items- each item has the following properties: name, location, meal, price, image, quantity
 var menuList = [
  { name: "Teriyaki Salmon", location: "Andrews", meal: "Dinner", price: "$8.99", image:Salmon, quantity:0},
  { name: "Granola Bowl", location: "Andrews", meal: "Breakfast", price: "$6.99", image:Granola, quantity:0},
@@ -122,18 +126,20 @@ var menuList = [
  { name: "White Pizza", location: "Andrews", meal: "Lunch", price: "$2.49", image:White, quantity:0},
  { name: "Burrito Bowl", location: "Andrews", meal: "Breakfast", price: "$7.99", image:Burrito, quantity:0},
  { name: "Chicken Wings", location: "Jo's", meal: "Dinner", price: "$3.99", image:Wing, quantity:0}
-] 
+]
 
 class App extends Component {
-
   constructor() {
     super()
     this.state ={
+      //items stores items in cart
       items: [],
-
     }
   }
-
+  //function to add item to cart- if not already present, the item is added
+  //to the array. otherwise, the quantity is incremented by one.
+  //the quantity must be incremented through the items array to cause a change
+  //of state and rerender the cart
   addItem = item => {
     if (this.state.items.indexOf(item) < 0) {
       const items = [...this.state.items, item]
@@ -150,6 +156,7 @@ class App extends Component {
     }
   }
 
+  //increase quantity by 1 from within cart
   addOne = item => {
     const items = this.state.items
     items[items.indexOf(item)].quantity += 1
@@ -158,6 +165,7 @@ class App extends Component {
     })
   }
 
+  //decrease quantity by 1 from within cart
   removeOne = item => {
     const items = this.state.items
     items[items.indexOf(item)].quantity -= 1
@@ -166,6 +174,7 @@ class App extends Component {
     })
   }
 
+  //remove item from cart and cart array
   removeAll = item => {
     item.quantity = 0
     const items = this.state.items
@@ -174,14 +183,12 @@ class App extends Component {
         })
   }
 
+  //sets quantity to 0- used by clearItems function
   setQuantity = item => {
     item.quantity= 0
   }
 
-  getQuantity = item => {
-    return(item.quantity)
-  }
-
+  //removes all items from cart
   clearItems = () => {
     const items = []
     this.setState({
@@ -193,9 +200,12 @@ class App extends Component {
   render() {
     return(
       <div style={{textAlign:"center"}}>
+        //title image
         <Image src={BDS}/>
+        //items display
         <FilteredList addItem={this.addItem} list={menuList}/>
-        <Cart items={this.state.items} clear={this.clearItems} add={this.addOne} removeAll={this.removeAll} removeOne={this.removeOne} getQuantity={this.getQuantity}/>
+        //cart section of page
+        <Cart items={this.state.items} clear={this.clearItems} add={this.addOne} removeAll={this.removeAll} removeOne={this.removeOne}/>
       </div>
     )
   }

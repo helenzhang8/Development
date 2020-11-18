@@ -1,7 +1,6 @@
 import React, {Component} from 'react'
 
 import {List,ListItem,} from '@material-ui/core'
-
 import ReactItem from './ReactItem'
 import DisplayList from './DisplayList'
 import Navbar from 'react-bootstrap/Navbar'
@@ -14,6 +13,7 @@ class FilteredList extends Component {
       location: "All",
       meal: "All",
       sort: "Random",
+      //states for link colors so active link can be highlighted
       color11: "#2b9348",
       color12: "#000000",
       color13: "#000000",
@@ -155,6 +155,7 @@ class FilteredList extends Component {
      }
   };
 
+  //functions to only show items matching filter criteria
   matchesFilterLocation = item => {
   	if(this.state.location === "All") {
   		return true
@@ -175,14 +176,7 @@ class FilteredList extends Component {
   	}
   }
 
-  createItem = item => {
-    return (
-      <ListItem button id="listcont">
-        {item.name}
-      </ListItem>
-    )
-  }
-
+  //sorts item based on price
   sortItems = (a,b) => {
     if(this.state.sort === "Asc") {
       if(a.price < b.price) return -1;
@@ -194,6 +188,7 @@ class FilteredList extends Component {
   render() {
     return (
       <div>
+      //toolbars with links to change filter/sort options
       <Navbar style={{backgroundColor: "#f0efeb"}}>
         <Navbar.Brand style={{color:"#4d194d"}}>Dining Hall:</Navbar.Brand>
         <Nav.Link id="nav-link" style={{color: this.state.color11}} eventKey="All" onSelect={this.onSelectFilterLocation}>All</Nav.Link>
@@ -217,6 +212,7 @@ class FilteredList extends Component {
         <Nav.Link id="nav-link" style={{color: this.state.color33}} eventKey="Desc" onSelect={this.onSelectSort}>Price: High to Low</Nav.Link>
       </Navbar>
         <div>
+          //create DisplayList to show items that match criteria
           <DisplayList addItem={this.props.addItem} list={this.props.list.filter(this.matchesFilterLocation).filter(this.matchesFilterMeal).sort(this.sortItems)}></DisplayList>
         </div>
       </div>

@@ -1,1 +1,50 @@
 README
+
+Organization of Components
+- App (index.js)
+  - holds main functions, list of all items, and items in cart
+  - renders FilteredList and Cart
+- FilteredList
+  - props:
+    - addItem- function to add one unit of an item to the cart
+    - list- all possible items
+  - states for selected filter and sort options, as well as link colors so active
+    link can be highlighted
+  - this component filters the items based on the options selected by the user
+  - onSelectFilterLocation, onSelectFilterMeal, onSelectSort- function to set filter/sort option, change colors
+  - matchesFilterLocation, matchesFilterMeal- removes items that do not match criteria
+  - renders filter/sort bars and creates DisplayList to display the desired items
+- DisplayList
+  - createItem- creates card matching layout specifications for each item passed in from FilteredList
+  - each card has addItem control
+- Cart
+  - props:
+    - items- array of items in cart
+    - clear- function to clear cart
+    - add- function to add one unit of an item from cart
+    - removeAll- function to remove all units of an item from the cart
+    - removeOne- function to remove one unit of an item from cart
+  - all items in the index.js items array will be mapped to a function creating
+    a cart card, with various controls that call functions from index.js
+
+How Data is Passed Through Components
+- all necessary items/functions are passed as props
+- the menuList, containing all items, is passed to the FilteredList
+  - this is filtered and passed to the DisplayList
+- the cart receives the items array, which contains all the arrays needed to be
+  displayed in the cart
+- most important functions are contained within index.js and called from within
+  components, passed as props
+
+Triggering State Changes
+- select a filter/sort option
+  - this changes the filter/sort state, as well as the color of the links to indicate
+    the selected option
+  - the displayed items change as a result of the state change
+- add item to cart- clicking the "Add to Cart" button will call the add function
+  within index.js and add the item to the cart array, or increment the quantity
+- Cart.js
+  - add/remove- user can increment the number of units in the cart
+    - remove is disabled if there is only one item
+  - removeAll will remove an item from the cart array completely
+  - user can clear the cart completely and remove all items
