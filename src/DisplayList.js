@@ -2,8 +2,6 @@ import React, {Component} from 'react'
 
 import {List,ListItem,Paper} from '@material-ui/core'
 
-
-import ReactItem from './ReactItem'
 import FilteredList from './FilteredList'
 import Card from 'react-bootstrap/Card'
 import CardDeck from 'react-bootstrap/CardDeck'
@@ -26,7 +24,7 @@ class DisplayList extends Component {
           </Card.Body>
         <Card.Footer>
         <h1>{item.price}</h1>
-        //button adds this item to the cart
+        {/*button adds this item to the cart*/}
         <Button variant="success" onClick={() => this.props.addItem(item)} style={{color:"white"}}>
           Add to Cart
         </Button>

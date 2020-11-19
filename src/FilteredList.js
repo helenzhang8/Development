@@ -1,7 +1,6 @@
 import React, {Component} from 'react'
 
 import {List,ListItem,} from '@material-ui/core'
-import ReactItem from './ReactItem'
 import DisplayList from './DisplayList'
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
@@ -188,7 +187,7 @@ class FilteredList extends Component {
   render() {
     return (
       <div>
-      //toolbars with links to change filter/sort options
+      {/*toolbars with links to change filter/sort options*/}
       <Navbar style={{backgroundColor: "#f0efeb"}}>
         <Navbar.Brand style={{color:"#4d194d"}}>Dining Hall:</Navbar.Brand>
         <Nav.Link id="nav-link" style={{color: this.state.color11}} eventKey="All" onSelect={this.onSelectFilterLocation}>All</Nav.Link>
@@ -212,7 +211,7 @@ class FilteredList extends Component {
         <Nav.Link id="nav-link" style={{color: this.state.color33}} eventKey="Desc" onSelect={this.onSelectSort}>Price: High to Low</Nav.Link>
       </Navbar>
         <div>
-          //create DisplayList to show items that match criteria
+          {/*create DisplayList to show items that match criteria*/}
           <DisplayList addItem={this.props.addItem} list={this.props.list.filter(this.matchesFilterLocation).filter(this.matchesFilterMeal).sort(this.sortItems)}></DisplayList>
         </div>
       </div>

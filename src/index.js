@@ -200,11 +200,11 @@ class App extends Component {
   render() {
     return(
       <div style={{textAlign:"center"}}>
-        //title image
+        {/*title image*/}
         <Image src={BDS}/>
-        //items display
+        {/*items display*/}
         <FilteredList addItem={this.addItem} list={menuList}/>
-        //cart section of page
+        {/*cart section of page*/}
         <Cart items={this.state.items} clear={this.clearItems} add={this.addOne} removeAll={this.removeAll} removeOne={this.removeOne}/>
       </div>
     )
